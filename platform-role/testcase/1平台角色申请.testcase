@@ -1,0 +1,30 @@
+# 申请成为“子系统持有者”
+node index post api/pub/platform/roleApply --filter='{"account":"lili","name":"丽丽","password":111111,"email":"lili@gg.com","type":"SUBSYS_OWNER","note":"子系统持有者申请"}' --only --report
+# 查看lili的申请
+node index get api/pub/platform/roleApply/account/lili --report
+# 申请成为“模块持有者”
+node index post api/pub/platform/roleApply --filter='{"account":"wang","name":"小王","password":111111,"email":"wang@gg.com","registered_github_username":"wang","type":"MODULE_OWNER","note":"模块持有者申请"}' --only --report
+# 查看wang的申请
+node index get api/pub/platform/roleApply/account/wang --report
+# 申请成为“代理”
+node index post api/pub/platform/roleApply --filter='{"account":"huhu","name":"虎虎","password":111111,"email":"huhu@gg.com","registered_github_username":"huhu","type":"AGENT","note":"代理申请"}' --only --report
+# 查看huhu的申请
+node index get api/pub/platform/roleApply/account/huhu --report
+# 登陆admin账号
+node index login api admin 111111
+# 查看申请列表
+node index get api/crud/platform/roleApply --report
+# 审核通过
+node index post api/crud/platform/roleApply/1/pass --filter='{}' --only --report
+# 审核通过
+node index post api/crud/platform/roleApply/2/pass --filter='{}' --only --report
+# 审核通过
+node index post api/crud/platform/roleApply/3/pass --filter='{}' --only --report
+# 查看用户列表
+node index get api/sys/users --report
+# 查看子系统持有者列表
+node index get api/crud/owner/subsysOwners --reoprt
+# 查看模块持有者列表
+node index get api/crud/owner/owners --report
+# 查看代理列表
+node index get api/crud/agent/agents --report

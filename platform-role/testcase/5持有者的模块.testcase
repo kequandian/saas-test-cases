@@ -1,0 +1,26 @@
+# 登陆admin账号
+node index login api admin 111111
+# 查看子系统列表
+node index get api/crud/tenant/subsys/subsyses --report
+# 查看子系统持有者列表
+node index get api/crud/owner/subsysOwners --reoprt
+# 为“丽丽(userId:876708082437197828)”添加子系统“图书管理系统(id:1)”
+node index post api/crud/owner/ownerSubsyses --filter='{"ownerUserId":"876708082437197828","subsysId":1,"profitRatio":8,"shareRatio":1}' --only --report
+# 为“丽丽(userId:876708082437197828)”添加子系统“教师管理系统(id:2)”
+node index post api/crud/owner/ownerSubsyses --filter='{"ownerUserId":"876708082437197828","subsysId":2,"profitRatio":5,"shareRatio":1}' --only --report
+# 为“多多(userId:876708082437197832)”添加子系统“图书管理系统(id:1)”
+node index post api/crud/owner/ownerSubsyses --filter='{"ownerUserId":"876708082437197832","subsysId":1,"profitRatio":2,"shareRatio":2}' --only --report
+# 查看子系统持有列表
+node index get api/crud/owner/ownerSubsyses --report
+# 查看子系统模块列表
+node index get api/crud/tenant/subsys/modules --report
+# 为“小王(userId:876708082437197829)”添加模块“图书库存(id:1)”
+node index post api/crud/owner/modules --filter='{"ownerUserId":"876708082437197829","moduleId":1,"profitRatio":3}' --only --reoprt
+# 为“小王(userId:876708082437197829)”添加模块“图书预约(id:2)”
+node index post api/crud/owner/modules --filter='{"ownerUserId":"876708082437197829","moduleId":2,"profitRatio":4}' --only --reoprt
+# 为“小王(userId:876708082437197829)”添加模块“图书借记(id:3)”
+node index post api/crud/owner/modules --filter='{"ownerUserId":"876708082437197829","moduleId":3,"profitRatio":5}' --only --reoprt
+# 为“少少(userId:876708082437197833)”添加模块“图书库存(id:1)”
+node index post api/crud/owner/modules --filter='{"ownerUserId":"876708082437197833","moduleId":1,"profitRatio":6}' --only --reoprt
+# 查看模块持有列表
+node index get api/crud/owner/modules --report

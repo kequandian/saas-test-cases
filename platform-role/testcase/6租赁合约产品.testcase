@@ -1,0 +1,12 @@
+# 登陆admin
+node index login api admin 111111
+# 查看合约产品类型列表
+node index get api/crud/contract/contractPlan/types --report
+# 创建租赁合约产品
+node index post api/crud/tenant/contract/plan --filter='{"typeId":1,"planNumber":"PLAN1111111111111111","name":"图书管理系统套餐","price":2000,"period":1,"unit":"TIMES","note":"图书管理系统基本套餐","autoRenew":0,"longTerm":0,"enableTimes":1,"prepay":0,"items":[{"moduleId":1,"price":1000,"note":"图书检索功能"},{"moduleId":2,"price":500,"note":"图书预约功能"},{"moduleId":3,"price":500,"note":"图书借记功能"}]}' --only --report
+# 更新租赁合约产品
+node index put api/crud/tenant/contract/plan/1 --filter='{"typeId":1,"planNumber":"PLAN1111111111111111","name":"图书管理系统套餐","price":3000,"period":1,"unit":"TIMES","note":"图书管理系统基本套餐","autoRenew":0,"longTerm":0,"enableTimes":1,"prepay":0,"items":[{"id":1,"planId":1,"moduleId":1,"price":1000,"note":"图书检索功能"},{"id":2,"planId":1,"moduleId":2,"price":500,"note":"图书预约功能"},{"id":3,"planId":1,"moduleId":3,"price":500,"note":"图书借记功能"},{"moduleId":7,"price":1000,"note":"图书评价"}]}' --only --report
+# 查看租赁合约产品列表，这是pub接口
+node index get api/pub/tenant/contract/plan --report
+# 查看租赁合约产品详情，这是pub接口
+node index get api/pub/tenant/contract/plan/1/details --report

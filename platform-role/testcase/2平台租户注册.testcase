@@ -1,0 +1,6 @@
+# 平台租户注册
+node index post api/sys/oauth/register --filter='{"account":"sasa","name":"飒飒","password":111111,"registeredGithubUsername":"sasa"}' --only --report
+# 登陆飒飒账号
+node index login api sasa 111111
+# 查看个人基本信息
+node index get api/sys/users/center --report

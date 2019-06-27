@@ -1,0 +1,16 @@
+# 子系统邀请码注册
+node index post api/sys/oauth/register --filter='{"account":"duoduo","name":"多多","password":111111,"registeredGithubUsername":"duoduo","invitationCode":"AA43c2c83a"}' --only --report
+# 模块邀请码注册
+node index post api/sys/oauth/register --filter='{"account":"shaoshao","name":"少少","password":111111,"registeredGithubUsername":"shaoshao","invitationCode":"BBf1e932bc"}' --only --report
+# 租户邀请码注册
+node index post api/sys/oauth/register --filter='{"account":"lanlan","name":"兰兰","password":111111,"registeredGithubUsername":"lanlan","invitationCode":"CC4c0b4614"}' --only --report
+# 租户用户邀请码注册
+node index post api/sys/oauth/register --filter='{"account":"nana","name":"纳纳","password":111111,"registeredGithubUsername":"nana","invitationCode":"DD637b32a7"}' --only --report
+# 代理邀请码注册
+node index post api/sys/oauth/register --filter='{"account":"pipi","name":"皮皮","password":111111,"registeredGithubUsername":"pipi","invitationCode":"EE481224ad"}' --only --report
+# 代理租户邀请码注册
+node index post api/sys/oauth/register --filter='{"account":"sansan","name":"三三","password":111111,"registeredGithubUsername":"sansan","invitationCode":"FF1e2ee40f"}' --only --report
+# 登陆admin账号
+node index login api admin 111111
+# 查看用户列表
+node index get api/sys/users --report

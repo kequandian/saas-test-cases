@@ -1,0 +1,20 @@
+# 登陆三三账号，三三是租户
+node index login api sansan 111111
+# 查看我的appId、appSecret
+node index get api/personal/center/tenant/app/mine --report
+# 查看我租赁的合约
+node index get api/personal/center/tenant/contract/mine --report
+# 查看我租赁的模块
+node index get api/personal/center/tenant/module/mine --report
+# 登陆虎虎账号，虎虎是三三的代理
+node index login api huhu 111111
+# 查看我的租客列表
+node index get api/personal/center/agent/tenant/mine --report
+# 登陆丽丽账号，丽丽是子系统持有者
+node index login api lili 111111
+# 查看我的子系统列表
+node index get api/personal/center/business/owner/subsys/mine --report
+# 登陆小王账号，小王是模块持有者
+node index login api wang 111111
+# 查看我的模块信息，包括个人获利比率，总获利，平台总收入列表
+node index get api/personal/center/business/owner/module/mine --report
