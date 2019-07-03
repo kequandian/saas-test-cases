@@ -1,0 +1,73 @@
+## 使用crud-plus标签服务向导
+### 1、配置
+**pojo类（com.jfeat.**.services.gen.persistence.module.XXX）需添加接收参数，参数名必须为“tags”**
+```
+    @com.baomidou.mybatisplus.annotations.TableField(exist = false)
+    private com.alibaba.fastjson.JSONArray tags;
+
+    public com.alibaba.fastjson.JSONArray getTags() {
+        return tags;
+    }
+    public void setTags(com.alibaba.fastjson.JSONArray tags) {
+        this.tags = tags;
+    }
+```
+
+**服务类（com.jfeat.**.services.domain.service.impl.XXXImpl）重写entityName()方法，建议为实体名称**
+```
+    @Override
+    protected String entityName() {
+        return "XXX";
+    }
+```
+
+**启用配置，在启动类（XXXApplication.java）的main方法添加如下代码**
+`META.enableTag(true);`
+
+### 2、使用，关注“images部分”
+**入参**
+```
+{
+	"name" : "产品套餐",
+	"tags":[{
+		"id":1,
+		"tagName":"优秀",
+		"tagType":"搬运能力"
+	},{
+		"id":2,
+		"tagName":"还不错",
+		"tagType":"搬运能力"
+	}]
+}
+```
+
+**查询返回**
+```
+{
+    "code": 200,
+    "message": "Success",
+    "data": {
+        "extra": null,
+        "tags": [
+            {
+                "isPrimary": 1,
+                "sortOrder": 1,
+                "tagType": "搬运能力",
+                "id": 1,
+                "tagName": "优秀"
+            },
+            {
+                "isPrimary": 0,
+                "sortOrder": 2,
+                "tagType": "搬运能力",
+                "id": 2,
+                "tagName": "还不错"
+            }
+        ],
+        "id": 10,
+        "name": "产品套餐",
+        "pid": null,
+        "note": null
+    }
+}
+```
