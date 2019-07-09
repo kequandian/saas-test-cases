@@ -1,12 +1,12 @@
 # 新建“图书管理系统”
-node index post api/crud/tenant/subsys/subsyses --filter='{"name":"图书管理系统","price":"1000","note":"图书管理系统，用于图书管理","items":[{"name":"图书库存","price":500,"note":"用于图书检索"},{"name":"图书预约","price":300,"note":"预约图书"},{"name":"图书借记","price":200,"note":"图书出借,租赁"}]}' --only --report
+node index post api/crud/subsys/subsyses --filter='{"name":"图书管理系统","price":"1000","note":"图书管理系统，用于图书管理","items":[{"name":"图书库存","price":500,"note":"用于图书检索"},{"name":"图书预约","price":300,"note":"预约图书"},{"name":"图书借记","price":200,"note":"图书出借,租赁"}]}' --only --report
 # 新建“教师管理系统”
-node index post api/crud/tenant/subsys/subsyses --filter='{"name":"教师管理系统","price":"1000","note":"教师管理系统，用于教师管理","items":[{"name":"教师信息","price":500,"note":"教师信息中心"},{"name":"课程安排","price":300,"note":"指定授课计划"},{"name":"出国申请","price":200,"note":"出国申请"}]}' --only --report
+node index post api/crud/subsys/subsyses --filter='{"name":"教师管理系统","price":"1000","note":"教师管理系统，用于教师管理","items":[{"name":"教师信息","price":500,"note":"教师信息中心"},{"name":"课程安排","price":300,"note":"指定授课计划"},{"name":"出国申请","price":200,"note":"出国申请"}]}' --only --report
 # 列表查询
-node index get api/crud/tenant/subsys/subsyses --report
+node index get api/crud/subsys/subsyses --report
 # 更新“图书管理系统”
-node index put api/crud/tenant/subsys/subsyses/1 --filter='{"id":1,"name":"图书管理系统","price":"1200","note":"图书管理系统，用于图书管理","items":[{"id":1,"subsys_id":1,"name":"图书库存","price":500,"note":"用于图书检索"},{"id":2,"subsys_id":1,"name":"图书预约","price":300,"note":"预约图书"},{"id":3,"subsys_id":1,"name":"图书借记","price":200,"note":"图书出借,租赁"},{"name":"图书评价","price":200,"note":"提供图书评价功能"}]}' --only --report
+node index put api/crud/subsys/subsyses/1 --filter='{"id":1,"name":"图书管理系统","price":"1200","note":"图书管理系统，用于图书管理","items":[{"id":1,"subsys_id":1,"name":"图书库存","price":500,"note":"用于图书检索"},{"id":2,"subsys_id":1,"name":"图书预约","price":300,"note":"预约图书"},{"id":3,"subsys_id":1,"name":"图书借记","price":200,"note":"图书出借,租赁"},{"name":"图书评价","price":200,"note":"提供图书评价功能"}]}' --only --report
 # 查看“图书管理系统”
-node index get api/crud/tenant/subsys/subsyses/1 --report
+node index get api/crud/subsys/subsyses/1 --report
 # 查看“图书管理系统”详情
-node index get api/crud/tenant/subsys/subsyses/1/details --report
+node index get api/crud/subsys/subsyses/1/details --report
