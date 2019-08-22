@@ -1,18 +1,46 @@
 ## etcd使用
 ### 说明
-* etcd单实例部署在虚拟机（192.168.2.122）
+* etcd单实例部署在虚拟机（192.168.3.28）
 * etcd版本v3.3.13
 * etcd对外开放端口：2379
 
-### etcd getway使用
+### etcd-client getway使用（[查看swagger](http://192.168.3.28:8088/swagger-ui.html#/etcd-endpoint)）
 ```
-# put
-curl -L http://192.168.2.122:2379/v3beta/kv/put -X POST -d '{"key": "name", "value": "lili"}'
-{"header":{"cluster_id":"14841639068965178418","member_id":"10276657743932975437","revision":"11","raft_term":"10"}}
+# post
+request:
+  http://192.168.3.28:8088/api/etcd
+requestBody:
+  {"key":"/name","value":"hello"}
+response:
+  {
+    "code": 200,
+    "data": {
+        "createRevision": "0",
+        "key": "",
+        "lease": "0",
+        "modRevision": "0",
+        "value": "",
+        "version": "0"
+    },
+    "message": "Success"
+}
 
 # get
-curl -L http://192.168.2.122:2379/v3beta/kv/range -X POST -d '{"key": "name"}'
-# {"header":{"cluster_id":"14841639068965178418","member_id":"10276657743932975437","revision":"11","raft_term":"10"},"kvs":[{"key":"name","create_revision":"10","mod_revision":"10","version":"1","value":"lili"}],"count":"1"}
+request:
+  http://192.168.3.28:8088/api/etcd?key=/name
+response:
+  {
+    "code": 200,
+    "data": {
+        "createRevision": "127",
+        "key": "/name",
+        "lease": "0",
+        "modRevision": "127",
+        "value": "hello",
+        "version": "1"
+    },
+    "message": "Success"
+}
 ```
 
 ### etcd-client使用 
@@ -28,7 +56,7 @@ curl -L http://192.168.2.122:2379/v3beta/kv/range -X POST -d '{"key": "name"}'
 在application.yml添加配置
 ```
 etcd:
-  etcdEndpoints: http://192.168.2.122:2379   // etcd端口，多个用“,”隔开
+  etcdEndpoints: http://192.168.3.28:2379   // etcd端口，多个用“,”隔开
   serviceName: cr-sys                        // 服务名称
   serviceEndpoint: http://127.0.0.1:8081     // 服务地址
   provideService: false                      // 是否对外提供服务
