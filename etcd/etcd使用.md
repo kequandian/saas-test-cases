@@ -1,8 +1,24 @@
 ## etcd使用
+### 安装部署
+* 下载相应操作系统的etcd安装包，下载路径：https://github.com/etcd-io/etcd/releases
+* 解压安装包，并进入解压后的文件
+* 启动etcd
+```sh
+# 启动命令
+nohup ./etcd --advertise-client-urls=http://192.168.3.28:2379 --listen-client-urls=http://192.168.3.28:2379 &
+
+# nohup：后台执行
+# --advertise-client-urls：广播链接，设置为本机ip，端口为2379
+# --listen-client-urls: 监听链接，设置为本机ip，端口为2379
+```
+
 ### 说明
-* etcd单实例部署在虚拟机（192.168.3.28）
+* 目前etcd单实例部署在虚拟机（192.168.3.28）
 * etcd版本v3.3.13
 * etcd对外开放端口：2379
+
+### etcd-client说明
+* 基于jetcd对etcd进行了业务封装，提供crud gatway api，提供服务注册、服务发现支持
 
 ### etcd-client getway使用（[查看swagger](http://192.168.3.28:8088/swagger-ui.html#/etcd-endpoint)）
 ```
